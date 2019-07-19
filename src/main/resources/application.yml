@@ -1,0 +1,15 @@
+spring:
+  application.name: Rest app
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    platform: postgresql
+    url: jdbc:postgresql://localhost/test
+    username: postgres
+    password: miron1987
+    hikari:
+      maximum-pool-size: 30
+      connection-timeout: 72000
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties.hibernate.jdbc.lob.non_contextual_creation: true #What the hell is this??
+server.port: 8080

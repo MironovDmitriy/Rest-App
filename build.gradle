@@ -1,0 +1,48 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'miron_rest'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.2.RELEASE")
+    }
+}
+
+group 'miron.rest'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://jcenter.bintray.com/" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+//    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-config'
+//    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client'
+
+    compile("org.springframework.boot:spring-boot-starter-web:2.0.2.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:2.0.2.RELEASE")
+    compile("commons-io:commons-io:2.6")
+    compile("org.apache.poi:poi-ooxml:3.17")
+//    compile("io.springfox:springfox-swagger2:2.9.0")
+//    compile("io.springfox:springfox-swagger-ui:2.9.0")
+
+    compile("org.postgresql:postgresql:42.2.2.jre7")
+    compile("org.projectlombok:lombok:1.18.2")
+    compile("com.intellij:annotations:+@jar")
+
+    compile("org.springframework.boot:spring-boot-configuration-processor:2.0.2.RELEASE")
+    compile group: 'com.google.guava', name: 'guava', version: '22.0'
+
+    testCompile("org.springframework.boot:spring-boot-starter-test:2.0.2.RELEASE")
+}
