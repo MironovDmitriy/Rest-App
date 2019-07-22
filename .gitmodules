@@ -1,0 +1,5 @@
+[submodule "Rest-App-Front"]
+
+	path = Rest-App-Front
+
+	url = git@github.com:MironovDmitriy/Rest-App-Front.git
