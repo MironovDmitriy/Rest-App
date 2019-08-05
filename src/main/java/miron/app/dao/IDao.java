@@ -1,4 +1,4 @@
-package miron.app.repositories;
+package miron.app.dao;
 
 import org.springframework.stereotype.Repository;
 

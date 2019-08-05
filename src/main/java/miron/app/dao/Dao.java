@@ -1,4 +1,4 @@
-package miron.app.repositories;
+package miron.app.dao;
 
 import miron.app.model.PersistantModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.transaction.Transactional;
-import java.util.Collection;
+import java.util.List;
 
 @Repository
 public abstract class Dao<T extends PersistantModel> implements IDao<T> {
@@ -30,16 +30,12 @@ public abstract class Dao<T extends PersistantModel> implements IDao<T> {
 
     @Override
     @Transactional
-    public Collection<T> getAll() {
+    public List<T> getAll() {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<T> cq = cb.createQuery(getPersistentClass());
         TypedQuery<T> allQuery = entityManager.createQuery(cq.select(cq.from(getPersistentClass())));
 
-        Collection<T> results = allQuery.getResultList();
-        if (results.isEmpty()) {
-            throw new RuntimeException("В БД нет ни одной записи");
-        }
-        return results;
+        return allQuery.getResultList();
     }
 
     @Override

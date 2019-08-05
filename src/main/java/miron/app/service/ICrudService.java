@@ -1,15 +1,15 @@
 package miron.app.service;
 
 import miron.app.model.PersistantModel;
-import miron.app.repositories.Dao;
+import miron.app.dao.Dao;
 
-import java.util.Collection;
+import java.util.List;
 
 public interface ICrudService<T extends PersistantModel, D extends Dao<T>> {
 
     default T getOneById(int id) { return getDao().get(id); }
 
-    default Collection<T> getAll() { return getDao().getAll(); }
+    default List<T> getAll() { return getDao().getAll(); }
 
     default T update(T updating) { return getDao().update(updating); }
 

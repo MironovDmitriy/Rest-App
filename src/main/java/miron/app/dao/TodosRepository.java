@@ -1,4 +1,4 @@
-package miron.app.repositories;
+package miron.app.dao;
 
 import miron.app.model.Todo;
 import org.springframework.data.jpa.repository.JpaRepository;
